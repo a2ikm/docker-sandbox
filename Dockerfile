@@ -27,4 +27,7 @@ RUN wget https://github.com/progrium/entrykit/releases/download/v${ENTRYKIT_VERS
 RUN mkdir /app
 WORKDIR /app
 ENTRYPOINT [ \
-  "prehook", "bundle install -j4 --quiet", "--"]
+  "prehook", \
+    "bundle install -j4 --quiet", \
+    "rm -f /app/tmp/pids/server.pid", "--" \
+]
